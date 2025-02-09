@@ -8,9 +8,18 @@ int	main(int argc, char **argv){
 	}
 
 	std::string name = argv[1];
-	int grade = std::stoi(argv[2]);
-	Bureaucrat* one = new Bureaucrat(name, grade);
-	one->decrementGrade();
+	int grade;
+	Bureaucrat* one;
+	try
+	{
+		grade = std::stoi(argv[2]);
+		one = new Bureaucrat(name, grade);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return 1;
+	}
 	std::cout << *one << std::endl;
 
 	std::cout << "<< Increment grade until Highest >>" << std::endl;
@@ -19,7 +28,7 @@ int	main(int argc, char **argv){
 			one->incrementGrade();
 			std::cout << *one << std::endl;
 		} catch (std::exception &e){
-			std::cout << e.what() << std::endl;
+			std::cerr << e.what() << std::endl;
 			break;
 		}
 	}
@@ -29,7 +38,7 @@ int	main(int argc, char **argv){
 			one->decrementGrade();
 			std::cout << *one << std::endl;
 		} catch (std::exception &e){
-			std::cout << e.what() << std::endl;
+			std::cerr << e.what() << std::endl;
 			break;
 		}
 	}
