@@ -1,11 +1,19 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include <sstream>
 
 void PrintWithBlueColor(std::string message)
 {
 	const std::string kBulue = "\033[36m";
 	const std::string kReset = "\033[0m";
 	std::cout << kBulue << message << kReset << std::endl; 
+}
+
+std::string toString(int num)
+{
+	std::ostringstream oss;
+	oss << num;
+	return oss.str();
 }
 
 int	main(int argc, char **argv){
@@ -33,7 +41,7 @@ int	main(int argc, char **argv){
 	try
 	{
 		const int gradeTooHigh = 0;
-		PrintWithBlueColor("<< Construct with grade " + std::to_string(gradeTooHigh) + " >>");
+		PrintWithBlueColor("<< Construct with grade " + toString(gradeTooHigh) + " >>");
 		Form tooHigh = Form("tooHigh", gradeTooHigh, gradeTooHigh);
 		std::cout << tooHigh << std::endl;
 	}
@@ -45,7 +53,7 @@ int	main(int argc, char **argv){
 	try
 	{
 		const int gradeTooLow = 151;
-		PrintWithBlueColor("<< Construct with grade " + std::to_string(151) + " >>");
+		PrintWithBlueColor("<< Construct with grade " + toString(151) + " >>");
 		Form tooLow = Form("tooLow", gradeTooLow, gradeTooLow);
 		std::cout << tooLow << std::endl;
 	}
@@ -57,14 +65,14 @@ int	main(int argc, char **argv){
 	try
 	{
 		const int lowestGrade = 150;
-		PrintWithBlueColor("<< Construct with grade " + std::to_string(lowestGrade) + " >>");
+		PrintWithBlueColor("<< Construct with grade " + toString(lowestGrade) + " >>");
 		Form withLowestGrade = Form("FormWithLowestGrade", lowestGrade, lowestGrade); 
 		std::cout << withLowestGrade << std::endl;
 		one->signForm(withLowestGrade);
 		std::cout << withLowestGrade << std::endl;
 
 		const int highestGrade = 1;
-		PrintWithBlueColor("<< Construct with grade " + std::to_string(highestGrade) + " >>");
+		PrintWithBlueColor("<< Construct with grade " + toString(highestGrade) + " >>");
 		Form withHighestGrade = Form("FormWithHighestGrade", highestGrade, highestGrade); 
 		std::cout << withHighestGrade << std::endl;
 		one->signForm(withHighestGrade);
