@@ -27,9 +27,14 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &bureaucrat){
 };
 
 void Bureaucrat::signForm(Form &form) const {
-	if (!form.beSigned(*this)) {
-		std::cout << this->getName() << " cannot sign " << form.getName() << " because his grade is too low." << std::endl;
-		return;
+	try
+	{
+		form.beSigned(*this);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << this->getName() << " couldn’t sign " << form.getName() << " because " << e.what() << std::endl;
+		return ;
 	}
 	std::cout << this->getName() << " signs " << form.getName() << std::endl;
 };

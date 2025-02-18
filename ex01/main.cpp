@@ -62,24 +62,17 @@ int	main(int argc, char **argv){
 		std::cerr << e.what() << '\n';
 	}
 	
-	try
-	{
-		const int lowestGrade = 150;
-		PrintWithBlueColor("<< Construct with grade " + toString(lowestGrade) + " >>");
-		Form withLowestGrade = Form("FormWithLowestGrade", lowestGrade, lowestGrade); 
-		std::cout << withLowestGrade << std::endl;
-		one->signForm(withLowestGrade);
-		std::cout << withLowestGrade << std::endl;
+	const int lowestGrade = 150;
+	PrintWithBlueColor("<< Construct with grade " + toString(lowestGrade) + " >>");
+	Form withLowestGrade = Form("FormWithLowestGrade", lowestGrade, lowestGrade); 
+	std::cout << withLowestGrade << std::endl;
+	one->signForm(withLowestGrade);
+	std::cout << withLowestGrade << std::endl;
 
-		const int highestGrade = 1;
-		PrintWithBlueColor("<< Construct with grade " + toString(highestGrade) + " >>");
-		Form withHighestGrade = Form("FormWithHighestGrade", highestGrade, highestGrade); 
-		std::cout << withHighestGrade << std::endl;
-		one->signForm(withHighestGrade);
-		std::cout << withHighestGrade << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	const int highestGrade = 1;
+	PrintWithBlueColor("<< Construct with grade " + toString(highestGrade) + " >>");
+	Form withHighestGrade = Form("FormWithHighestGrade", highestGrade, highestGrade); 
+	std::cout << withHighestGrade << std::endl;
+	one->signForm(withHighestGrade);
+	std::cout << withHighestGrade << std::endl;
 };
