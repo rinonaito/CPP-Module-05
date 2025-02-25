@@ -13,8 +13,15 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 	return *this;
 };
 
+//Informs that <target> has been pardoned by Zaphod Beeblebrox.
 bool PresidentialPardonForm::executeCore() const
 {
+	std::cout << this->getName() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 	return true;
-	//Informs that <target> has been pardoned by Zaphod Beeblebrox.
-}
+};
+
+std::ostream& operator<<(std::ostream& os, const PresidentialPardonForm& form)
+{
+	os << static_cast<const AForm&>(form);
+	return os;
+};

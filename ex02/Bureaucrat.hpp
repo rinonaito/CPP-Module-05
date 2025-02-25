@@ -18,6 +18,7 @@ class	Bureaucrat{
 		Bureaucrat& operator=(const Bureaucrat &bureaucrat);
 
 		void signForm(AForm &form) const;
+		void executeForm(AForm const & form);
 
 		std::string getName() const;
 		int getGrade() const;

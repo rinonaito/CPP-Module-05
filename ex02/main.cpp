@@ -1,7 +1,8 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
-#include <sstream>
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 void PrintWithBlueColor(std::string message)
 {
@@ -19,12 +20,13 @@ std::string toString(int num)
 
 int	main(int argc, char **argv){
 
-	if (argc!= 3){
-		std::cout << "Usage: ./bureaucrat <name> <grade>" << std::endl;
+	if (argc!= 4){
+		std::cout << "Usage: ./bureaucrat <name> <grade> <target>" << std::endl;
 		return 1;
 	}
 
 	std::string name = argv[1];
+	std::string  target = argv[3];
 	int grade;
 	Bureaucrat* one;
 	try
@@ -41,10 +43,34 @@ int	main(int argc, char **argv){
 
 	try
 	{
-		ShrubberyCreationForm shrubberyCreationForm = ShrubberyCreationForm("target");
+		ShrubberyCreationForm shrubberyCreationForm = ShrubberyCreationForm(target);
 		std::cout << shrubberyCreationForm << std::endl;
 		one->signForm(shrubberyCreationForm);
-		shrubberyCreationForm.execute(*one); 
+		one->executeForm(shrubberyCreationForm);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	try
+	{
+		RobotomyRequestForm robotomyRequestForm = RobotomyRequestForm(target);
+		std::cout << robotomyRequestForm << std::endl;
+		one->signForm(robotomyRequestForm);
+		one->executeForm(robotomyRequestForm);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	try
+	{
+		PresidentialPardonForm presidentialPardonForm = PresidentialPardonForm(target);
+		std::cout << presidentialPardonForm<< std::endl;
+		one->signForm(presidentialPardonForm);
+		one->executeForm(presidentialPardonForm);
 	}
 	catch(const std::exception& e)
 	{
