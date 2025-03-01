@@ -1,0 +1,14 @@
+{
+	"files.associations": {
+		"new": "cpp",
+		"string": "cpp",
+		"typeinfo": "cpp",
+		"vector": "cpp",
+		"ios": "cpp",
+		"istream": "cpp",
+		"ostream": "cpp",
+		"streambuf": "cpp",
+		"string_view": "cpp"
+	},
+	"C_Cpp.errorSquiggles": "disabled"
+}
