@@ -11,6 +11,9 @@ class ShrubberyCreationForm : public AForm {
 		ShrubberyCreationForm(const ShrubberyCreationForm &form);
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm &form);
 		~ShrubberyCreationForm();
+		static const std::string kName;
+		static const int kSignGrade;
+		static const int kExecGrade;
 
 	private:
 		ShrubberyCreationForm();

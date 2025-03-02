@@ -1,8 +1,12 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : AForm("presidential pardon", 25, 5, "DefaultTarget"){};
+const std::string PresidentialPardonForm::kName = "presidential pardon";
+const int PresidentialPardonForm::kSignGrade = 25;
+const int PresidentialPardonForm::kExecGrade= 5;
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string target) : AForm("presidential pardon", 25, 5, target){};
+PresidentialPardonForm::PresidentialPardonForm() : AForm(PresidentialPardonForm::kName, PresidentialPardonForm::kSignGrade, PresidentialPardonForm::kExecGrade, "DefaultTarget"){};
+
+PresidentialPardonForm::PresidentialPardonForm(const std::string target) : AForm(PresidentialPardonForm::kName, PresidentialPardonForm::kSignGrade, PresidentialPardonForm::kExecGrade, target){};
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &form) : AForm(form.getName(), form.getSignGrade(), form.getExecGrade(), form.getTarget()){};
 

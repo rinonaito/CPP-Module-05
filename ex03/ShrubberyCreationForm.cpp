@@ -1,8 +1,12 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("shrubbery creation", 145, 137, "DefaultTarget"){};
+const std::string ShrubberyCreationForm::kName = "shrubbery creation";
+const int ShrubberyCreationForm::kSignGrade = 145;
+const int ShrubberyCreationForm::kExecGrade= 137;
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) : AForm("shrubbery creation", 145, 137, target){};
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm(ShrubberyCreationForm::kName, ShrubberyCreationForm::kSignGrade, ShrubberyCreationForm::kExecGrade, "DefaultTarget"){};
+
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) : AForm(ShrubberyCreationForm::kName, ShrubberyCreationForm::kSignGrade, ShrubberyCreationForm::kExecGrade, target){};
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &form) : AForm(form.getName(), form.getSignGrade(), form.getExecGrade(), form.getTarget()){};
 

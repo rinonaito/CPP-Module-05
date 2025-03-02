@@ -1,8 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "AForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
 void PrintWithBlueColor(std::string message)
 {
@@ -43,34 +40,22 @@ int	main(int argc, char **argv){
 
 	try
 	{
-		ShrubberyCreationForm shrubberyCreationForm = ShrubberyCreationForm(target);
-		std::cout << shrubberyCreationForm << std::endl;
-		one->signForm(shrubberyCreationForm);
-		one->executeForm(shrubberyCreationForm);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+		Intern intern = Intern();
+		AForm* shrubberyCreation = intern.makeForm(ShrubberyCreationForm::kName, target);
+		one->signForm(*shrubberyCreation);
+		one->executeForm(*shrubberyCreation);
 
-	try
-	{
-		RobotomyRequestForm robotomyRequestForm = RobotomyRequestForm(target);
-		std::cout << robotomyRequestForm << std::endl;
-		one->signForm(robotomyRequestForm);
-		one->executeForm(robotomyRequestForm);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+		AForm* robotomyRequest = intern.makeForm(RobotomyRequestForm::kName, target);
+		one->signForm(*robotomyRequest);
+		one->executeForm(*robotomyRequest);
 
-	try
-	{
-		PresidentialPardonForm presidentialPardonForm = PresidentialPardonForm(target);
-		std::cout << presidentialPardonForm<< std::endl;
-		one->signForm(presidentialPardonForm);
-		one->executeForm(presidentialPardonForm);
+		AForm* presidentialPardon = intern.makeForm(PresidentialPardonForm::kName, target);
+		one->signForm(*presidentialPardon);
+		one->executeForm(*presidentialPardon);
+
+		AForm* wrongForm = intern.makeForm("wrong form name", target);
+		one->signForm(*wrongForm);
+		one->executeForm(*wrongForm);
 	}
 	catch(const std::exception& e)
 	{

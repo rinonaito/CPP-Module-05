@@ -1,7 +1,12 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("robotomy request", 72, 45, "DefaultTarget"){};
-RobotomyRequestForm::RobotomyRequestForm(const std::string target) : AForm("robotomy request", 72, 45, target){};
+const std::string RobotomyRequestForm::kName = "presidential pardon";
+const int RobotomyRequestForm::kSignGrade = 72;
+const int RobotomyRequestForm::kExecGrade= 45;
+
+RobotomyRequestForm::RobotomyRequestForm() : AForm(RobotomyRequestForm::kName, RobotomyRequestForm::kSignGrade, RobotomyRequestForm::kExecGrade, "DefaultTarget"){};
+
+RobotomyRequestForm::RobotomyRequestForm(const std::string target) : AForm(RobotomyRequestForm::kName, RobotomyRequestForm::kSignGrade, RobotomyRequestForm::kExecGrade, target){};
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &form): AForm(form.getName(), form.getSignGrade(), form.getExecGrade(), form.getTarget()){};
 RobotomyRequestForm::~RobotomyRequestForm(){};
