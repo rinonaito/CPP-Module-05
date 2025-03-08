@@ -7,6 +7,7 @@
 class	Bureaucrat{
 
 	public:
+		Bureaucrat();
 		Bureaucrat(const Bureaucrat &bureaucrat);
 		Bureaucrat(const std::string name);
 		Bureaucrat(const std::string name, const int grade);
@@ -24,8 +25,6 @@ class	Bureaucrat{
 		int grade_;
 		static const int kHighestGrade = 1;
 		static const int kLowestGrade = 150;
-
-		Bureaucrat();
 
 		class GradeTooHighException : public std::runtime_error{
 			public:

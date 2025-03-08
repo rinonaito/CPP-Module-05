@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include <cstdlib>
 
 int	main(int argc, char **argv){
 
@@ -12,7 +13,7 @@ int	main(int argc, char **argv){
 	Bureaucrat* one;
 	try
 	{
-		grade = std::stoi(argv[2]);
+		grade = std::atoi(argv[2]);
 		one = new Bureaucrat(name, grade);
 	}
 	catch(const std::exception& e)

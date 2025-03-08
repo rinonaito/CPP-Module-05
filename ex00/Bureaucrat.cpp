@@ -1,6 +1,7 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(){
+Bureaucrat::Bureaucrat() : name_("default name"){
+	this->setGrade(Bureaucrat::kLowestGrade);
 };
 
 Bureaucrat::Bureaucrat(const Bureaucrat &bureaucrat)
