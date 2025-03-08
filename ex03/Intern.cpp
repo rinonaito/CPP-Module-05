@@ -28,12 +28,12 @@ AForm* Intern::creatShrubberyCreation(std::string target){
 	return new ShrubberyCreationForm(target);
 };
 
-AForm* Intern::makeForm(std::string name, std::string target){
-	std::cout << ShrubberyCreationForm::kName << std::endl;
+AForm* Intern::makeForm(std::string name, std::string target) const{
 	unsigned long array_size = sizeof(form_factory_list_) / sizeof(form_factory_list_[0]); 
 	for (unsigned long i = 0; i < array_size; i++)
 	{
 		if (form_factory_list_[i].name == name) {
+			std::cout << "Intern creates " << form_factory_list_[i].name << std::endl;
 			return form_factory_list_[i].create(target);
 		}
 	}

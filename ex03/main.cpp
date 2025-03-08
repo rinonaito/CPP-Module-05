@@ -1,5 +1,6 @@
 #include "Bureaucrat.hpp"
 #include "Intern.hpp"
+#include <cstdlib>
 
 void PrintWithBlueColor(std::string message)
 {
@@ -28,7 +29,7 @@ int	main(int argc, char **argv){
 	Bureaucrat* one;
 	try
 	{
-		grade = std::stoi(argv[2]);
+		grade = std::atoi(argv[2]);
 		one = new Bureaucrat(name, grade);
 	}
 	catch(const std::exception& e)
@@ -41,18 +42,23 @@ int	main(int argc, char **argv){
 	try
 	{
 		Intern intern = Intern();
+
+		PrintWithBlueColor("<< ShruberryCreationForm >>");
 		AForm* shrubberyCreation = intern.makeForm(ShrubberyCreationForm::kName, target);
 		one->signForm(*shrubberyCreation);
 		one->executeForm(*shrubberyCreation);
 
+		PrintWithBlueColor("<< RobotomyRequestForm >>");
 		AForm* robotomyRequest = intern.makeForm(RobotomyRequestForm::kName, target);
 		one->signForm(*robotomyRequest);
 		one->executeForm(*robotomyRequest);
 
+		PrintWithBlueColor("<< PresidentialPardonForm >>");
 		AForm* presidentialPardon = intern.makeForm(PresidentialPardonForm::kName, target);
 		one->signForm(*presidentialPardon);
 		one->executeForm(*presidentialPardon);
 
+		PrintWithBlueColor("<< WrongForm >>");
 		AForm* wrongForm = intern.makeForm("wrong form name", target);
 		one->signForm(*wrongForm);
 		one->executeForm(*wrongForm);

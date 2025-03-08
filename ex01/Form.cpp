@@ -10,7 +10,7 @@ Form::Form(std::string name, int signGrade, int execGrade)
 		isValidGrade(execGrade);
 };
 
-Form::Form(const Form &form): name_(form.getName()), signGrade_(form.getSignGrade()), execGrade_(form.getExecGrade()), isSigned_() {
+Form::Form(const Form &form): name_(form.getName()), signGrade_(form.getSignGrade()), execGrade_(form.getExecGrade()), isSigned_(form.isSigned()) {
 }
 
 Form::~Form(){}

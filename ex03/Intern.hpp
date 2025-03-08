@@ -24,6 +24,6 @@ class Intern {
 		static AForm* creatPresidentialPardon(std::string target);
 		static AForm* creatRobotomyRequest(std::string target);
 		static AForm* creatShrubberyCreation(std::string target);
-		AForm* makeForm(std::string name, std::string target);
+		AForm* makeForm(std::string name, std::string target) const;
 		static const FormFactory form_factory_list_[3];
 };

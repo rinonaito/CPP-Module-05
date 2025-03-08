@@ -22,7 +22,7 @@ bool ShrubberyCreationForm::executeCore() const
 {
 	try
 	{
-		std::ofstream file(this->getTarget() + "_shrubbery");
+		std::ofstream file((this->getTarget() + "_shrubbery").c_str());
 		file << getAsciiTree();
 		file.close();
 	}
